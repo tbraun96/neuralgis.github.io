@@ -11,7 +11,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>NeuralGIS</name>
             <source-roots>
-                <root id="src.dir"/>
+                <root id="src.src.dir" name="Source Folder"/>
             </source-roots>
             <test-roots/>
         </data>
