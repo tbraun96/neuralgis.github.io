@@ -58,7 +58,7 @@ catch (Exception e)
         float[] two = fillArray(len);
         System.out.println("Done loading random arrays in " + (System.currentTimeMillis() - millis0) +"ms, now testing GPU...\nTesting add");
         millis0 = System.currentTimeMillis();
-        float[] r0 = kern.padd(one, two);
+        float[] r0 = kern.pmult(2,one, two);
         System.out.println("Done testing add in " + (System.currentTimeMillis() - millis0) +"ms, now testing sub| " + one[0] + "+" + two[0] + "=" + r0[0]);
         millis0 = System.currentTimeMillis();
         /*float[] r2 = kern.sub(one, two);
