@@ -13,8 +13,10 @@ import javax.swing.UIManager;
 import jcuda.Pointer;
 import jcuda.runtime.JCuda;
 import com.jtattoo.plaf.noire.NoireLookAndFeel;
+import com.neuralgis.graphics.GPUMathKernel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import jcuda.driver.*;
 /**
  *
@@ -35,18 +37,58 @@ catch (Exception e)
 {
   e.printStackTrace();
 }
-        
-        
-  
+
         loadf();
-        System.out.println(deviceData);
         JCuda.cudaSetDevice(0);
         Pointer pointer = new Pointer();
         JCuda.cudaMalloc(pointer, 4);
         System.out.println("Pointer: "+pointer);
         JCuda.cudaFree(pointer);
+        GPUMathKernel kernel = new GPUMathKernel();
+        System.out.println("Addition of 2000 and 4000: " + kernel.mult(2000, 4000) + "\n");
+        profile(250000000, kernel);
         frame = new MainFrame();
         frame.setVisible(true);
+    }
+    
+    private static void profile(int len, GPUMathKernel kern){
+        System.out.println("Profiling GPU float array multiplication for " + len + " items (" + (len*4/1000000) + "Mb)");
+        long millis0 = System.currentTimeMillis();
+        float[] one = fillArray(len);
+        float[] two = fillArray(len);
+        System.out.println("Done loading random arrays in " + (System.currentTimeMillis() - millis0) +"ms, now testing GPU...\nTesting add");
+        millis0 = System.currentTimeMillis();
+        float[] r0 = kern.padd(one, two);
+        System.out.println("Done testing add in " + (System.currentTimeMillis() - millis0) +"ms, now testing sub| " + one[0] + "+" + two[0] + "=" + r0[0]);
+        millis0 = System.currentTimeMillis();
+        /*float[] r2 = kern.sub(one, two);
+        System.out.println("Done testing sub in " + (System.currentTimeMillis() - millis0) +"ms, now testing mult");
+        millis0 = System.currentTimeMillis();
+        float[] r3 = kern.mult(one, two);
+        System.out.println("Done testing mult in " + (System.currentTimeMillis() - millis0) +"ms, now testing div");
+        millis0 = System.currentTimeMillis();
+        float[] r4 = kern.div(one, two);
+        System.out.println("Done testing div in " + (System.currentTimeMillis() - millis0) + ", freeing objects...");
+        //r0= null;
+        r2= null;
+        r3= null;
+        r4= null;*/
+        millis0 = System.currentTimeMillis();
+        for (int i = 0; i < len; i++){
+            r0[i] = one[i] + two[i];
+        }
+        System.out.println("Done testing cpu-add in " + (System.currentTimeMillis() - millis0));
+        
+    }
+    
+    
+    private static float[] fillArray(int len){
+        Random rand = new Random();
+        float[] ret = new float[len];
+        
+        for (int i = 0; i  < len; i++) ret[i] = rand.nextFloat();
+        
+        return ret;
     }
  
     private static void loadf(){
