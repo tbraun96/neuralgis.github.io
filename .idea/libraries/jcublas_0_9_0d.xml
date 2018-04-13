@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jcublas-0.9.0d">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jcuda/jcublas-0.9.0d.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
