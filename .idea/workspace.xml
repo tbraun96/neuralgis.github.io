@@ -2,25 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4caac56b-debe-4ca7-8013-1fc484a6de6e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcublas_0_9_0d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcublas_natives_0_9_0d_linux_x86_64.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcuda_0_9_0d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcuda_natives_0_9_0d_linux_x86_64.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcudnn_0_9_0d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jcudnn_natives_0_9_0d_linux_x86_64.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com/neuralgis/gpu/ModuleLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NeuralGIS.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/Brain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/NetworkType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/Neuron.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/NeuronSeries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/NeuronState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/RasterLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/neuralgis/network/TransferFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jcuda/jcublas-0.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jcuda/jcuda-0.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neuralgis/Exec.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neuralgis/TestExec.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neuralgis/graphics/GPUMathKernel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neuralgis/window/MainFrame.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neuralgis/window/MainFrame.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,15 +22,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="225">
       <file leaf-file-name="Exec.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Exec.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Exec.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/com/neuralgis/Exec.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -50,11 +30,103 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JCudaDriverSample2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com/neuralgis/JCudaDriverSample2.java">
+      <file leaf-file-name="RasterLoader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/RasterLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="78" column="45" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="50" />
+            <state relative-caret-position="480">
+              <caret line="35" column="48" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NeuronSeries.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/NeuronSeries.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1732#1733#0" expanded="true" />
+                <element signature="e#1753#1754#0" expanded="true" />
+                <element signature="e#1786#1787#0" expanded="true" />
+                <element signature="e#1814#1815#0" expanded="true" />
+                <element signature="e#1864#1865#0" expanded="true" />
+                <element signature="e#1898#1899#0" expanded="true" />
+                <element signature="e#1895#1896#0" expanded="true" />
+                <element signature="e#1929#1930#0" expanded="true" />
+                <element signature="e#1982#1983#0" expanded="true" />
+                <element signature="e#2028#2029#0" expanded="true" />
+                <element signature="e#2172#2173#0" expanded="true" />
+                <element signature="e#2201#2202#0" expanded="true" />
+                <element signature="e#2249#2250#0" expanded="true" />
+                <element signature="e#2285#2286#0" expanded="true" />
+                <element signature="e#2233#2234#0" expanded="true" />
+                <element signature="e#2261#2262#0" expanded="true" />
+                <element signature="e#2300#2301#0" expanded="true" />
+                <element signature="e#2334#2335#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NeuronState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/NeuronState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Neuron.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/Neuron.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="64" column="87" selection-start-line="64" selection-start-column="87" selection-end-line="64" selection-end-column="87" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#386#387#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#482#483#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransferFunction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/TransferFunction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Brain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/Brain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#915#916#0" expanded="true" />
+                <element signature="e#960#961#0" expanded="true" />
+                <element signature="e#997#998#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NetworkType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/neuralgis/network/NetworkType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -72,15 +144,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JCudaDriver.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/jcuda/jcuda-0.9.0d.jar!/jcuda/driver/JCudaDriver.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="1514" selection-start-line="1514" selection-end-line="1514" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestExec.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/com/neuralgis/TestExec.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -90,23 +153,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/com/neuralgis/gpu/ModuleLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -135,6 +187,14 @@
         <option value="$PROJECT_DIR$/com/neuralgis/TestExec.java" />
         <option value="$PROJECT_DIR$/com/neuralgis/graphics/GPUMathKernel.java" />
         <option value="$PROJECT_DIR$/com/neuralgis/Exec.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/RasterLoader.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/NetworkType.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/NeuralNetwork.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/Brain.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/NeuronState.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/NeuronSeries.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/TransferFunction.java" />
+        <option value="$PROJECT_DIR$/com/neuralgis/network/Neuron.java" />
       </list>
     </option>
   </component>
@@ -148,6 +208,9 @@
     <option name="x" value="350" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -165,6 +228,12 @@
               <item name="NeuralGIS" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralGIS" type="462c0819:PsiDirectoryNode" />
               <item name="neuralgis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralGIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralGIS" type="462c0819:PsiDirectoryNode" />
+              <item name="neuralgis" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NeuralGIS" type="b2602c69:ProjectViewProjectNode" />
@@ -200,6 +269,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.neuralgis.network" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -212,7 +286,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Exec">
+  <component name="RunManager" selected="Application.RasterLoader">
     <configuration name="Exec" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.neuralgis.Exec" />
       <module name="NeuralGIS" />
@@ -221,17 +295,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.neuralgis.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-    </configuration>
-    <configuration name="JCudaCharPointersTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.com.neuralgis.JCudaCharPointersTest" />
-      <module name="NeuralGIS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.com.neuralgis.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -254,6 +317,17 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="src.com.neuralgis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="RasterLoader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.neuralgis.network.RasterLoader" />
+      <module name="NeuralGIS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.neuralgis.network.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -314,16 +388,16 @@
       <item itemvalue="Application.TestExec" />
       <item itemvalue="Application.Exec" />
       <item itemvalue="Application.JCudaDriverSample" />
-      <item itemvalue="Application.JCudaCharPointersTest" />
       <item itemvalue="Application.JCudaDriverSample2" />
+      <item itemvalue="Application.RasterLoader" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RasterLoader" />
         <item itemvalue="Application.Exec" />
         <item itemvalue="Application.JCudaDriverSample2" />
         <item itemvalue="Application.JCudaDriverSample" />
         <item itemvalue="Application.TestExec" />
-        <item itemvalue="Application.JCudaCharPointersTest" />
       </list>
     </recent_temporary>
   </component>
@@ -338,15 +412,24 @@
       <option name="presentableId" value="Default" />
       <updated>1523574774849</updated>
       <workItem from="1523574784546" duration="17989000" />
-      <workItem from="1523634617522" duration="15919000" />
+      <workItem from="1523634617522" duration="38104000" />
     </task>
+    <task id="LOCAL-00001" summary="upload math libs">
+      <created>1523658116810</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1523658116810</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33908000" />
+    <option name="totallyTimeSpent" value="56093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1044" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -358,12 +441,13 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32947367" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32947367" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12070312" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32947367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -375,7 +459,6 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32947367" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -383,6 +466,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="upload math libs" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload math libs" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Exec.java">
@@ -536,6 +623,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/RasterLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="35" column="48" selection-start-line="34" selection-start-column="8" selection-end-line="35" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/Brain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/NetworkType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/NeuronState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/NeuronSeries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1732#1733#0" expanded="true" />
+            <element signature="e#1753#1754#0" expanded="true" />
+            <element signature="e#1786#1787#0" expanded="true" />
+            <element signature="e#1814#1815#0" expanded="true" />
+            <element signature="e#1864#1865#0" expanded="true" />
+            <element signature="e#1898#1899#0" expanded="true" />
+            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1982#1983#0" expanded="true" />
+            <element signature="e#2028#2029#0" expanded="true" />
+            <element signature="e#2172#2173#0" expanded="true" />
+            <element signature="e#2201#2202#0" expanded="true" />
+            <element signature="e#2249#2250#0" expanded="true" />
+            <element signature="e#2285#2286#0" expanded="true" />
+            <element signature="e#2233#2234#0" expanded="true" />
+            <element signature="e#2261#2262#0" expanded="true" />
+            <element signature="e#2300#2301#0" expanded="true" />
+            <element signature="e#2334#2335#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/TransferFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com/neuralgis/network/Neuron.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="64" column="87" selection-start-line="64" selection-start-column="87" selection-end-line="64" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
