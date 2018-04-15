@@ -1,5 +1,7 @@
 package com.neuralgis.network;
 
+import org.apache.commons.lang.ArrayUtils;
+
 import java.util.ArrayList;
 import java.util.concurrent.locks.LockSupport;
 
@@ -16,7 +18,7 @@ public class Neuron {
 
     private int[] ranges = new int[2];
 
-    protected Neuron(int COL_INDEX, int ROW_INDEX, int NEURON_TYPE, NetworkType NETWORK_TYPE, int THREAD_INDEX, Brain brain){
+    protected Neuron(int COL_INDEX, int ROW_INDEX, int NEURON_TYPE, NetworkType NETWORK_TYPE, int THREAD_INDEX, Brain brain) {
         this.COL_INDEX = COL_INDEX;
         this.ROW_INDEX = ROW_INDEX;
         this.NEURON_TYPE = NEURON_TYPE;
@@ -24,46 +26,67 @@ public class Neuron {
         this.THREAD_INDEX = THREAD_INDEX;
         this.brain = brain;
         getRangesForward();
+        initInboundWeights();
     }
 
-    protected void setValue(float VALUE){
+    private void initInboundWeights() {
+        if (NEURON_TYPE == NeuronSeries.HIDDEN_LAYER || NEURON_TYPE == NeuronSeries.OUTPUT_LAYER) {
+            int prevDepth = this.brain.getNeuronSeries(COL_INDEX - 1).getDepth();
+            this.INBOUND_WEIGHTS = new ArrayList<Float>();
+            for (int i = 0; i < prevDepth; i++) {
+                this.INBOUND_WEIGHTS.add(i, this.brain.getRandomSeed());
+            }
+        }
+
+        if (NEURON_TYPE == NeuronSeries.INPUT_LAYER) {
+            this.setValue(this.brain.getInput()[ROW_INDEX]);
+        }
+    }
+
+    protected void setValue(float VALUE) {
         this.VALUE = VALUE;
     }
 
-    protected float getValue(){
+    protected float getValue() {
         return this.VALUE;
     }
 
 
     public void fire() {
-        if (NETWORK_TYPE == NetworkType.SIMPLE_BACKPROPAGATION){
-            if (NEURON_TYPE == NeuronSeries.HIDDEN_LAYER){
-                if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.FEED_FORWARD){
-                    ArrayList<Float> previousLayerOutputs = brain.getNeuronSeries(COL_INDEX -1).getValues();
-                    INBOUND_WEIGHTS = (ArrayList<Float>) brain.getNeuronSeries(COL_INDEX -1).getValues().subList(this.ranges[0], this.ranges[2]);
-                    for (int i = 0; i < brain.getNeuronSeries(COL_INDEX - 1).getDepth(); i++){
-                        //work here
-                    }
-                }
+        if (NETWORK_TYPE == NetworkType.SIMPLE_BACKPROPAGATION) {
+            if (NEURON_TYPE == NeuronSeries.HIDDEN_LAYER) {
+                if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.FEED_FORWARD) {
+                    ArrayList<Float> previousLayerOutputs = brain.getNeuronSeries(COL_INDEX - 1).getValues();
+                    INBOUND_WEIGHTS = (ArrayList<Float>) brain.getNeuronSeries(COL_INDEX - 1).getValues().subList(this.ranges[0], this.ranges[1]);
+                    //addAllIntoSingleFloatValue(multiply previousLayerOutput[i] * INBOUND_WEIGHTS[i] -> use kernel.mult()) -> input into TransferFunction and set this neuron equal to TF's output.
+                    this.VALUE = TransferFunction.sigmoid(this.brain, ArrayUtils.toPrimitive((Float[]) INBOUND_WEIGHTS.toArray()), ArrayUtils.toPrimitive((Float[]) previousLayerOutputs.toArray()));
 
-                if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.BACKPROPAGATION){
+                } else if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.BACKPROPAGATION) {
 
                 }
 
             }
+
+            else if(NEURON_TYPE == NeuronSeries.OUTPUT_LAYER){
+                if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.FEED_FORWARD){
+                    ArrayList<Float> previousLayerOutputs = brain.getNeuronSeries(COL_INDEX - 1).getValues();
+                    INBOUND_WEIGHTS = (ArrayList<Float>) brain.getNeuronSeries(COL_INDEX - 1).getValues().subList(this.ranges[0], this.ranges[1]);
+                    this.VALUE = TransferFunction.sigmoid(this.brain, ArrayUtils.toPrimitive((Float[]) INBOUND_WEIGHTS.toArray()), ArrayUtils.toPrimitive((Float[]) previousLayerOutputs.toArray()));
+                }
+            }
         }
     }
 
-    private int[] getRangesForward(){
+    private int[] getRangesForward() {
         int end;
         int start = 0;
-        for (int i = COL_INDEX -1; i > 0; i--){ //through hidden
-            start += COL_INDEX*brain.getNeuronSeries(i).getDepth();
+        for (int i = COL_INDEX - 1; i > 0; i--) { //through hidden
+            start += brain.getNeuronSeries(i).getDepth() * brain.getNeuronSeries(i - 1).getDepth();
         }
-        start += brain.getNeuronSeries(1).getDepth() * brain.getNeuronSeries(0).getDepth(); //from first hidden to input
+
         //now factor ROW_INDEX
-        start += brain.getNeuronSeries(COL_INDEX -1).getDepth()*ROW_INDEX; //check here
-        end = start + (int) Math.floor(brain.getNeuronSeries(COL_INDEX).getDepth()/brain.getNeuronSeries(COL_INDEX).getMaxThreads())*THREAD_INDEX;
-        return new int[]{start,end};
+        start += brain.getNeuronSeries(COL_INDEX - 1).getDepth() * (ROW_INDEX - 1); //if COL_INDEX=1, this happens without above loop
+        end = start + brain.getNeuronSeries(COL_INDEX - 1).getDepth();
+        return new int[]{start, end};
     }
 }

@@ -46,7 +46,7 @@ public class ModuleLoader {
         }
         String modelString = "-m"+System.getProperty("sun.arch.data.model");
         String command =
-                "/usr/local/cuda-9.1/bin/nvcc " + modelString + " -ptx "+
+                "/usr/local/cuda-9.1/bin/nvcc " + "" + modelString + " -ptx "+
                         cuFile.getPath()+" -o "+ptxFileName;
 
         System.out.println("Executing\n"+command);
