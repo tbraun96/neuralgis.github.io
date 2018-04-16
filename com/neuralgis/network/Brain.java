@@ -15,6 +15,7 @@ public class Brain {
     private NetworkType networkType;
     private GPUMathKernel kernel;
     private float[] expectedOutputs;
+
     public Brain(String fileInput, NetworkType type, float[] expectedOutputs, int ...params) throws IOException {
         BufferedImage image = ImageIO.read(new File(System.getProperty("user.dir") + "/" + fileInput));
         this.setInput(RasterLoader.rasterToNetworkInput(image));

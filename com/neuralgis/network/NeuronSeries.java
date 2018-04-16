@@ -21,6 +21,8 @@ public class NeuronSeries {
     private ArrayList<Float> VALUES;
     private float[] inputs;
 
+    private float SSE;
+
     public NeuronSeries(float[] data, int SERIES_TYPE, int COLUMN_INDEX, Brain brain) throws IOException {
         this.inputs = data;
         this.SERIES_TYPE = SERIES_TYPE;
@@ -48,7 +50,10 @@ public class NeuronSeries {
     }
 
     private void printInitDebug(){
-
+        System.out.println("~Created NeuronSeries~");
+        System.out.println("SERIES_TYPE:" + SERIES_TYPE);
+        System.out.println("DEPTH: " + DEPTH);
+        System.out.println("");
     }
 
     
@@ -86,7 +91,7 @@ public class NeuronSeries {
         if (this.brain.getNetworkType() == NetworkType.SIMPLE_BACKPROPAGATION) {
             if (this.SERIES_TYPE == OUTPUT_LAYER) {
                 fireSerial();
-                computeError();
+                this.SSE = computeError();
                 //now, compute error. Brain does the rest. We are done here
             } else if (this.SERIES_TYPE == HIDDEN_LAYER) {
                 fireParallel();
@@ -128,8 +133,13 @@ public class NeuronSeries {
     /**
      * Only executed on output neurons, and only executed after output neurons fired.
      */
-    private void computeError(){
+    private float computeError(){
+        float SSE = 0;
 
+        for (int i = 0; i < this.brain.getExpectedOutputs().length; i++)
+            SSE += (0.5) * (this.brain.getExpectedOutputs()[i] - NEURONS[i].getValue()) * (this.brain.getExpectedOutputs()[i] - NEURONS[i].getValue());
+
+        return SSE;
     }
 
     protected NeuronState getState() {

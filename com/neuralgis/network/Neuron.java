@@ -15,6 +15,7 @@ public class Neuron {
     private Brain brain;
     private int THREAD_INDEX;
     private ArrayList<Float> INBOUND_WEIGHTS;
+    private float bias;
 
     private int[] ranges = new int[2];
 
@@ -27,6 +28,11 @@ public class Neuron {
         this.brain = brain;
         getRangesForward();
         initInboundWeights();
+        initBias();
+    }
+
+    private void initBias(){
+        this.bias = this.brain.getRandomSeed();
     }
 
     private void initInboundWeights() {
@@ -59,7 +65,7 @@ public class Neuron {
                     ArrayList<Float> previousLayerOutputs = brain.getNeuronSeries(COL_INDEX - 1).getValues();
                     INBOUND_WEIGHTS = (ArrayList<Float>) brain.getNeuronSeries(COL_INDEX - 1).getValues().subList(this.ranges[0], this.ranges[1]);
                     //addAllIntoSingleFloatValue(multiply previousLayerOutput[i] * INBOUND_WEIGHTS[i] -> use kernel.mult()) -> input into TransferFunction and set this neuron equal to TF's output.
-                    this.VALUE = TransferFunction.sigmoid(this.brain, ArrayUtils.toPrimitive((Float[]) INBOUND_WEIGHTS.toArray()), ArrayUtils.toPrimitive((Float[]) previousLayerOutputs.toArray()));
+                    this.VALUE = TransferFunction.sigmoid(this.brain, this.getBias(), ArrayUtils.toPrimitive((Float[]) INBOUND_WEIGHTS.toArray()), ArrayUtils.toPrimitive((Float[]) previousLayerOutputs.toArray()));
 
                 } else if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.BACKPROPAGATION) {
 
@@ -71,7 +77,7 @@ public class Neuron {
                 if (brain.getNeuronSeries(COL_INDEX).getState() == NeuronState.FEED_FORWARD){
                     ArrayList<Float> previousLayerOutputs = brain.getNeuronSeries(COL_INDEX - 1).getValues();
                     INBOUND_WEIGHTS = (ArrayList<Float>) brain.getNeuronSeries(COL_INDEX - 1).getValues().subList(this.ranges[0], this.ranges[1]);
-                    this.VALUE = TransferFunction.sigmoid(this.brain, ArrayUtils.toPrimitive((Float[]) INBOUND_WEIGHTS.toArray()), ArrayUtils.toPrimitive((Float[]) previousLayerOutputs.toArray()));
+                    this.VALUE = TransferFunction.sigmoid(this.brain, this.getBias(), ArrayUtils.toPrimitive((Float[]) INBOUND_WEIGHTS.toArray()), ArrayUtils.toPrimitive((Float[]) previousLayerOutputs.toArray()));
                 }
             }
         }
@@ -88,5 +94,13 @@ public class Neuron {
         start += brain.getNeuronSeries(COL_INDEX - 1).getDepth() * (ROW_INDEX - 1); //if COL_INDEX=1, this happens without above loop
         end = start + brain.getNeuronSeries(COL_INDEX - 1).getDepth();
         return new int[]{start, end};
+    }
+
+    protected float getBias() {
+        return bias;
+    }
+
+    protected void setBias(float bias) {
+        this.bias = bias;
     }
 }
